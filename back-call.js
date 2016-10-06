@@ -189,12 +189,27 @@ var reg = (function(){
             nonce: function (range) {
                 var arr = [];
 
-                for(var i = 0;i < (i > range ? range : Number.MAX_SAFE_INTEGER);i++){
+                for(var i = 0;i < (range > Number.MAX_SAFE_INTEGER ? Number.MAX_SAFE_INTEGER : range);i++){
                     arr.push(String.fromCharCode(Math.floor((Math.random() * 26) + 65)));
                     arr.push(String.fromCharCode(Math.floor((Math.random() * 12) + 48)));
                     arr.push(String.fromCharCode(Math.floor((Math.random() * 26) + 97)));
                 }
                 return arr.join("");
+            },
+            monthsBtwn: function(start,end){
+                var d = new Date(start);
+                var months = [];
+                var diffs = end.getMonth() - start.getMonth();
+
+                for(var i = 1;i <= diffs;i++){
+                    months.push(d.getFullYear()
+                        + "-"
+                        + ((d.getMonth() + i).toString().length == 1 ? ("0" + (d.getMonth() + i))
+                        : (d.getMonth() + i)) + "-" + (d.getDate().toString().length == 1 ? ("0" + (d.getDate()))
+                        : (d.getDate()))
+                    );
+                }
+                return months;
             },
             eins_arr: function (arr) {
                 return arr.join("").split(",");
