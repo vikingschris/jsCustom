@@ -160,7 +160,7 @@ var reg = (function(){
             o_val: function (objLitVal,sep) {
                 var str = "";
                 sep = sep == "undefined" ? "" : sep;
-                $.each(objLitVal, function (k,v) {
+                this.each(objLitVal, function (k,v) {
                     str += v + sep;
                 });
 
