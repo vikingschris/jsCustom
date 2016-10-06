@@ -189,7 +189,7 @@ var reg = (function(){
             nonce: function (range) {
                 var arr = [];
 
-                for(var i = 0;i < (range > Number.MAX_SAFE_INTEGER ? Number.MAX_SAFE_INTEGER : range);i++){
+                for(var i = 0;i < (i > range ? range : Number.MAX_SAFE_INTEGER);i++){
                     arr.push(String.fromCharCode(Math.floor((Math.random() * 26) + 65)));
                     arr.push(String.fromCharCode(Math.floor((Math.random() * 12) + 48)));
                     arr.push(String.fromCharCode(Math.floor((Math.random() * 26) + 97)));
