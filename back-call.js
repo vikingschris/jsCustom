@@ -1,6 +1,4 @@
-/**
- * Created by c.wright on 3/31/2016.
- */
+
 var reg = (function(){
     return {
 
